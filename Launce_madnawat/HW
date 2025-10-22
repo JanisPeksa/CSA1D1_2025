@@ -1,1 +1,27 @@
+import java.util.Scanner;
 
+class Calculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        System.out.println("enter 1st number");
+        int b = scanner.nextInt();
+        System.out.println("enter 2nd number");
+        int operation = scanner.nextInt();
+        System.out.println("Enter operation ( +, -, *, /):");
+        if( operation == '+') {
+            int result = a + b ;
+            System.out.println("Result : " + result);}
+        else if( operation == '-') {
+            int result = a - b ;
+            System.out.println("result :" + result);}
+        else if( operation == '/') {
+            int result = a / b ;
+            System.out.println("result :" + result);}
+        else if ( operation == '*') {
+            int result = a * b ;
+            System.out.println("result :" + result);}
+        else     {
+        System.out.println("Invalid result");}
+    }
+}
