@@ -10,8 +10,11 @@ class Calculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         double num1, num2;
-        int Number1 = 8;
-        int Number2 = 9;
+
+        System.out.println("Please enter number 1:");
+        int Number1 = scanner.nextInt();
+        System.out.println("Please enter number 2:");
+        int Number2 = scanner.nextInt();
 
 
         int sum = Number1 + Number2;
@@ -24,13 +27,22 @@ class Calculator {
         double y = 16.05;
         double add = x+2;
 
-        int user_num = scanner.nextInt();
+//        int user_num = scanner.nextInt();
         int user_nu = 2;
         int area = 2*(Number1 + Number2);
-        int 
 
+        System.out.println("Sum: " + sum);
+        System.out.println("subtract: " + subtract);
 
-
+        if (sum > 20) {
+            System.out.println("Those are very big numbers!!");
+        } else if(sum > 10) {
+            System.out.println("The sum is in between 20 and 10");
+        } else if (sum > 5) {
+            System.out.println("The sum is in between 5 and 10");
+        } else {
+            System.out.println("It is less than 5");
+        }
 
     }
 }
