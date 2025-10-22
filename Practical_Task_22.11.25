@@ -20,5 +20,8 @@ class Calculator {
         int divison = Number1 / Number2;
         int modulus = Number1 % Number2;
         int power = (int) Math.pow(Number1, Number2);
+        double x = 12.4;
+        double y = 16.05;
+        double add = x+2;
     }
 }
