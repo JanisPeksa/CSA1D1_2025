@@ -1,1 +1,20 @@
+import java.util.Scanner;
+class Calculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("please enter your number:");
+        int x = scanner.nextInt();
+        System.out.println("please enter your number:");
+        int y = scanner.nextInt();
+        System.out.println("'enter the operation you want");
+        int sum = x + y;
+        System.out.println(" sum :"+sum);
+        int sub = x - y;
+        System.out.println(" sub :"+sub);
+        int multiply = x * y;
+        System.out.println(" multiply :"+multiply);
+        int divide = x / y;
+        System.out.println(" divide :"+divide);
+    }
+}
 
