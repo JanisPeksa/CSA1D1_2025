@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+class Calculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask user for input
+        System.out.print("Enter first number: ");
+        double number1 = scanner.nextDouble();
+
+        System.out.print("Enter second number: ");
+        double number2 = scanner.nextDouble();
+
+        // Perform calculations
+        double sum = number1 + number2;
+        double difference = number1 - number2;
+        double product = number1 * number2;
+        double quotient = 0;
+
+        // Check for division by zero
+        if (number2 != 0) {
+            quotient = number1 / number2;
+        } else {
+            System.out.println("Division by zero is not allowed.");
+        }
+
+        double modulus = number1 % number2;
+        double power = Math.pow(number1, number2);
+
+        // Display results
+        System.out.println("\n--- Calculation Results ---");
+        System.out.println("Addition: " + sum);
+        System.out.println("Subtraction: " + difference);
+        System.out.println("Multiplication: " + product);
+        if (number2 != 0) {
+            System.out.println("Division: " + quotient);
+        }
+        System.out.println("Modulus: " + modulus);
+        System.out.println("Power: " + power);
+
+        scanner.close();
+    }
