@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+class Calculator {
+    public static void main(String[] args) {
+        Scanner sc1 = new Scanner(System.in);
+        int Number1 = sc1.nextInt();
+        int Number2 = sc1.nextInt();
+
+
+        int sum = Number1 + Number2;
+        int subtract = Number1 - Number2;
+        int multplication = Number1 * Number2;
+        int divison = Number1 / Number2;
+        int modulus = Number1 % Number2;
+        int power = (int) Math.pow(Number1, Number2);
+
+
+    }
+}
