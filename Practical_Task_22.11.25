@@ -23,5 +23,10 @@ class Calculator {
         double x = 12.4;
         double y = 16.05;
         double add = x+2;
+
+        int user_num = scanner.nextInt();
+        int user_num = 2 
+
+
     }
 }
