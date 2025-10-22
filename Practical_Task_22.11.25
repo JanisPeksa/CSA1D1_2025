@@ -13,5 +13,6 @@ class Calculator {
 
         int sum = Number1 + Number2;
         int subtract = Number1 - Number2;
+        int multplication = Number1 * Number2;
     }
 }
