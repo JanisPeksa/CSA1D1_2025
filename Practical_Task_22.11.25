@@ -3,3 +3,14 @@
 3. Create calc. task that was given in practical
 4. Push results to GitHub
 5. See the errors and fix with prof.
+
+
+class Calculator {
+    public static void main(String[] args) {
+        int Number1 = 52;
+        int Number2 = 53;
+
+
+        int sum = Number1 + Number2;
+    }
+}
