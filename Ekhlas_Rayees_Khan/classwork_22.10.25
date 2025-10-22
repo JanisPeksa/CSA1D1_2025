@@ -1,0 +1,32 @@
+import java.util.Scanner;
+class calc{
+    public static void main(String[] args) {
+        Scanner user = new Scanner(System.in);
+                System.out.print("Enter your name: ");
+                String name = user.nextLine();
+                System.out.println("Hello, " + name + "! Welcome to the simple calculator.");
+                System.out.print("Enter the first number: ");
+                double num1 = user.nextDouble();
+                System.out.print("Enter the second number: ");
+                double num2 = user.nextDouble();
+                System.out.println("Choose an operation (+, -, *, /): ");
+                char option = user.next().charAt(0);
+                double output=0;
+        if (option == '+'){
+            output = num1 + num2;
+        } else if (option == '-') {
+            output = num1 - num2;
+        } else if (option == '*') {
+            output = num1 * num2;
+        } else if (option == '/') {
+            output = num1 / num2;
+        } else {
+            System.out.println("Opps ! some error occurred.....");
+        }
+
+
+        System.out.println("Your output is : " + output);
+
+
+    }
+}
