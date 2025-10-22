@@ -1,1 +1,31 @@
+import java.util.Scanner;
+
+class Calculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double num1, num2;
+
+        System.out.println("Please enter number a:");
+        int a = scanner.nextInt();
+        System.out.println("Please enter number b:");
+        int b = scanner.nextInt();
+
+        int sum = a + b;
+        System.out.println("sum:" + sum);
+        int sub = a - b;
+        System.out.println("sub:" + sub);
+        int multiplication = a * b;
+        System.out.println("multiplication:" + multiplication);
+        int div = a / b;
+        System.out.println("div:" + div);
+
+        System.out.println("Please enter opertaion (+, -, *, /):");
+        if( opertaion == '+') {
+
+        }
+
+    }
+}
+
+
 
