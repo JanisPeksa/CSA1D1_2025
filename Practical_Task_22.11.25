@@ -25,7 +25,10 @@ class Calculator {
         double add = x+2;
 
         int user_num = scanner.nextInt();
-        int user_num = 2 
+        int user_nu = 2;
+        int area = 2*(Number1 + Number2);
+       
+                
 
 
     }
