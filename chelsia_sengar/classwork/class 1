@@ -1,1 +1,76 @@
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(".........");
+        System.out.println(".JANIS...");
+        System.out.println("...PEKSA.");
+        System.out.println(".........");
 
+        System.out.println("     ");
+        System.out.println("     ");
+
+        System.out.println("BBBB");
+        System.out.println("B   B");
+        System.out.println("BBBB");
+        System.out.println("B   B");
+        System.out.println("BBBB");
+        System.out.println("     ");
+
+        System.out.println(" AAA ");
+        System.out.println("A   A ");
+        System.out.println("AAAAA");
+        System.out.println("A   A ");
+        System.out.println("A   A ");
+
+        System.out.println("     ");
+
+        System.out.println("N    N");
+        System.out.println("NN   N");
+        System.out.println("N N  N");
+        System.out.println("N   NN");
+        System.out.println("N    N");
+
+        System.out.println("     ");
+
+        System.out.println(" AAA ");
+        System.out.println("A   A ");
+        System.out.println("AAAAA");
+        System.out.println("A   A ");
+        System.out.println("A   A ");
+
+        System.out.println("     ");
+
+        System.out.println("N    N");
+        System.out.println("NN   N");
+        System.out.println("N N  N");
+        System.out.println("N   NN");
+        System.out.println("N    N");
+
+        System.out.println("     ");
+
+        System.out.println(" AAA ");
+        System.out.println("A   A ");
+        System.out.println("AAAAA");
+        System.out.println("A   A ");
+        System.out.println("A   A ");
+
+//        int x = 5; //value = 5
+//        System.out.println(x);
+//        x = x + x + 2; //value = 12
+//        System.out.println(x);
+//        x = x +1 +x;  // value = 11
+//        System.out.println(x);
+
+
+        int x = 5;
+        System.out.println(x);
+        System.out.println("x = x + x + 2  => x = "+ x +" + "+ x +" + 2");
+        x = x + x +2;
+        System.out.println(x);
+        System.out.println("x = x + 1 + x  => x = "+ x +" + " + 1 +"+ "+ x);
+        x = x + 1 + x;
+        System.out.println(x);
+
+
+
+    }
+}
