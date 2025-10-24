@@ -1,0 +1,58 @@
+ n1
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("BBBB");
+        System.out.println("B   B");
+        System.out.println("BBBB");
+        System.out.println("B   B");
+        System.out.println("BBBB");
+        System.out.println("    ");
+        System.out.println(" AAA ");
+        System.out.println("A   A");
+        System.out.println("AAAAA");
+        System.out.println("A   A");
+        System.out.println("A   A");
+        System.out.println("     ");
+        System.out.println("N   N");
+        System.out.println("NN  N");
+        System.out.println("N N N");
+        System.out.println("N   N  ");
+        System.out.println("    ");
+        System.out.println(" AAA ");
+        System.out.println("A   A");
+        System.out.println("AAAAA");
+        System.out.println("A   A");
+        System.out.println("A   A");
+        System.out.println("     ");
+        System.out.println("N   N");
+        System.out.println("NN  N");
+        System.out.println("N N N");
+        System.out.println("N   N  ");
+        System.out.println("    ");
+        System.out.println(" AAA ");
+        System.out.println("A   A");
+        System.out.println("AAAAA");
+        System.out.println("A   A");
+        System.out.println("A   A");
+    }
+} 
+n2
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(".........");
+        System.out.println(".JĀNIS... ");
+        System.out.println("...PEKŠA.");
+        System.out.println(".........");
+n3
+public class Main {
+    public static void main(String[] args) {
+        int x = 5; // value of x
+        System.out.println(x);
+        System.out.println("x = x + x + 2 => x = "+ x +" + "+ x +" + 2");
+        x = x + x + 2; // value of x
+        System.out.println(x);
+        System.out.println("x = x + x + 1 => x = "+ x +" + "+ x +" + 1");
+        x = x + x + 1; // value of x
+        System.out.println(x);
+
+
