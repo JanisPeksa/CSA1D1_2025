@@ -7,6 +7,10 @@ class Calculator {
         System.out.println("enter 1st number");
         int b = scanner.nextInt();
         System.out.println("enter 2nd number");
+     System.out.println("Enter 1 for Addition");
+        System.out.println("Enter 2 for Subtraction");
+        System.out.println("Enter 3 for Multiplication");
+        System.out.println("Enter 4 for Division");
         int operation = scanner.nextInt();
         System.out.println("Enter operation ( +, -, *, /):");
         if( operation == '+') {
@@ -25,3 +29,5 @@ class Calculator {
         System.out.println("Invalid result");}
     }
 }
+
+
