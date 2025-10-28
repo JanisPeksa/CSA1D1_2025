@@ -54,5 +54,18 @@ public class Main {
         System.out.println("x = x + x + 1 => x = "+ x +" + "+ x +" + 1");
         x = x + x + 1; // value of x
         System.out.println(x);
-
+n4
+public class Main {
+    public static void main(String[] args) {
+                int x = 15; //
+                int y = 100; //
+                System.out.println(x>y);      // return ture if x is more than y otherwise it turn false
+                System.out.println(x < 15);   //return ture if x is less than 15 otherwise it turn false
+                System.out.println(x <= 15);  // return ture if x is less than or equal to 15 otherwise it turn false
+                System.out.println(x == y);   // return ture if x is equal to y otherwise it turn false
+                System.out.println(x != 5);   //return ture if x is not equal to y otherwise it turn false
+                System.out.println(x * -y >0 ); // return ture if x multiplied by -y is more than 0 otherwise it turn false
+                boolean isBigger = x > y;
+            }
+        }
 
