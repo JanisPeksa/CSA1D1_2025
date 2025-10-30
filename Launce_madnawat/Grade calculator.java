@@ -8,7 +8,9 @@ class Main {
         int score = sc.nextInt();
 
         if(score >= 90 && score <=100){
-                System.out.println("your grade is : A ");}
+                System.out.println("your grade is : A ");
+                System.out.println("Excellent work!");
+        }
 
         else if ( score>= 80 && score < 89)    {
                 System.out.println("your grade is : B");
