@@ -2,42 +2,39 @@ import java.util.Scanner;
 
 public class LoginSystem {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
         String correctUsername = "student";
         String correctPassword = "java123";
+        Scanner sc = new Scanner(System.in);
+
         int attempts = 0;
         final int maxAttempts = 3;
         boolean loggedIn = false;
 
-        while (attempts < maxAttempts && !loggedIn) {
-        System.out.println("String username");
-        String username = sc.nextLine();
+        while (attempts < maxAttempts) {
+            System.out.println("Enter username");
+            String username = sc.nextLine();
 
-        System.out.println("String password");
-        String password = sc.nextLine();
+            System.out.println("Enter password");
+            String password = sc.nextLine();
 
-            if (username.equals(correctUsername) && password.equals(correctPassowrd)) {
-                System.out.println("Welcome");
-                loggedIn = true;
+            if (username.equals(correctUsername)) {
+                if (password.equals(correctPassword)) {
+                    System.out.println("Welcome");
+                    break;
+                } else {
+                    System.out.println("Incorrect password.");
+                }
             }
-            else if (username.equals(correctUsername && !password.equals(correctpassword)) {
-                System.out.println("Incorrect password");
-                attempts++;
+            else{
+                System.out.println("Invalid username.");
             }
-            else {
-                System.out.println("Invalid username");
-                attempts++;
-            }
-            attempts--;
-            if (attempts == 0) {
-                System.out.println("Account Locked");
-            }
-            else {
-                System.out.println("Try Again");
-            }
-
-
+            attempts++;
         }
+
+        if (attempts == maxAttempts) {
+            System.out.println("Your Account is Locked.");
+        }
+
     }
 }
