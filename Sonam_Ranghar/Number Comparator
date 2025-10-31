@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class NumberComparator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the first number:");
+        int firstNumber = sc.nextInt();
+
+        System.out.print("Enter the second number:");
+        int secondNumber = sc.nextInt();
+
+        if (firstNumber > secondNumber) {
+            System.out.println("First is larger");
+        }
+        if (secondNumber > firstNumber) {
+            System.out.println("Second is larger");
+        }
+        else {
+            System.out.println("Both are equal");
+        }
+    }
+}
