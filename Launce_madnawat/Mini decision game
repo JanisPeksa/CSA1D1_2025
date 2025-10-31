@@ -1,0 +1,21 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("You're in a dark forest. Do you go LEFT or RIGHT");
+
+        String choice = sc.nextLine();
+
+    if ( choice.equals("LEFT") ) {
+        System.out.println("You found a river");
+    }
+    else if( choice.equals("RIGHT") ) {
+        System.out.println("You meet a wolf");
+    }
+    else{
+        System.out.println("you stand still and nothing happens");
+    }
+
+        }
+
+    }
