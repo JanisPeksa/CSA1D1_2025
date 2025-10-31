@@ -107,7 +107,7 @@ public class Main {
             System.out.println("Your grade is :F");
         }
         else {
-            System.out.println("Error!");
+            System.out.println("Invallid score. Please enter a value between 0 and 100");
         }
 
     }
