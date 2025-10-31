@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class TemperatureChecker {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+
+            System.out.print("Enter temperature in Celsius:");
+            int temp = sc.nextInt();
+
+            if (temp < 0) {
+                System.out.print("It's freezing:");
+            } else if (temp <= 15) {
+                System.out.println("It's cold");
+            } else if (temp <= 25) {
+                System.out.println("It's warm");
+            } else {
+                System.out.println("It's hot!");
+            }
+
+            System.out.println("80 % is humidity");
+            System.out.println("30 % is windy");
+        }
+}
