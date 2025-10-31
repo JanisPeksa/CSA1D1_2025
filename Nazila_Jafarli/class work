@@ -113,3 +113,127 @@ public class Main {
     }
 
 }
+
+n7
+public class Main {
+    public static void main(String[] args) {
+        int x = 2;
+        if ( x > 10) {
+            System.out.println(" A ");
+        }
+        else if(x > 3){
+            System.out.println(" B ");
+        }
+        else{
+            System.out.println(" C ");
+        }
+    }
+}
+
+
+
+n8
+public class Main {
+    public static void main(String[] args) {
+        int x = 7;
+        if (x % 2 == 0) {
+            System.out.println(" Even ");public class Main {
+    public static void main(String[] args) {
+        int x = 2;
+        if ( x > 10) {
+            System.out.println(" A ");
+        }
+        else if(x > 3){
+            System.out.println(" B ");
+        }
+        else{
+            System.out.println(" C ");
+        }
+    }
+}
+        }
+
+        else{
+            System.out.println(" odd ");
+        }
+    }
+} 
+
+n9
+public class Main {
+    public static void main(String[] args) {
+        int temperature = 2;
+        if ( temperature < 0) {
+            System.out.println(" It's freezing! ");
+        }
+        else if(temperature > 0 && temperature < 15) {
+            System.out.println(" It's cold ");
+        }
+        else if(temperature > 16 && temperature < 25) {
+            System.out.println(" It's warm ");
+        }
+        else if(temperature > 25 ) {
+            System.out.println(" It's hot! ");
+        }
+        
+    }
+}
+n10
+
+public class Main {
+    public static void main(String[] args) {
+        int first = 3;
+        int second = 5;
+        if ( first == second) {
+            System.out.println(" Both are equal ");
+        }
+        else if( first > second) {
+            System.out.println("First is larger");
+        }
+        else if( first < second) {
+            System.out.println("Second is larger");
+        }
+        
+
+    }
+}
+n11
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        String username = "student";
+        String password = "java123";
+        Scanner input = new Scanner(System.in);
+        String inputUsername = input.nextLine();
+        String inputPassword = input.nextLine();
+       if ( username.equals( inputUsername) && password.equals(inputPassword) ) {
+           System.out.println("Welcome");
+       }
+       if ( username.equals(inputUsername) && !password.equals(inputPassword) ) {
+           System.out.println("Incorrect passsword.");
+       }
+       else if ( !username.equals(inputUsername) && password.equals(inputPassword) ) {
+           System.out.println("Invaild username");
+       }
+    }
+}
+n12
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("You're in a dark forest.Do ou go LEFT or RIGHT");
+        String direction = input.next();
+        if (direction.equals("LEFT")) {
+            System.out.println("You found a river.");
+        }
+        if (direction.equals("RIGHT")) {
+            System.out.println("You meet a wolf");
+        }
+        else{
+            System.out.println("You stans still and nothing happens");
+        }
+
+    }
+}
+n13
