@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Combined_Challenge {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter your age");
+        int age = sc.nextInt();
+        
+        System.out.println("Is the person a citizen? (true/false)");
+        boolean isCitizen = sc.nextBoolean();
+        System.out.println("Eligibility Status\n:");
+
+        if (age >= 18 && isCitizen) {
+            System.out.println("You are eligible for vote.");
+        }
+        if (age >= 16) {
+            System.out.println("You are eligible for driving.");
+        }
+        if (age >= 65) {
+            System.out.println("You are eligible for retire.");
+        }
+
+    }
+
+}
