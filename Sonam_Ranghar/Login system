@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class LoginSystem {
+    public static void main(String[] args) {
+
+        String correctUsername = "student";
+        String correctPassword = "java123";
+        Scanner sc = new Scanner(System.in);
+
+        int attempts = 0;
+        final int maxAttempts = 3;
+        boolean loggedIn = false;
+
+        while (attempts < maxAttempts) {
+            System.out.println("Enter username");
+            String username = sc.nextLine();
+
+            System.out.println("Enter password");
+            String password = sc.nextLine();
+
+            if (username.equals(correctUsername)) {
+                if (password.equals(correctPassword)) {
+                    System.out.println("Welcome");
+                    break;
+                } else {
+                    System.out.println("Incorrect password.");
+                }
+            }
+            else{
+                System.out.println("Invalid username.");
+            }
+            attempts++;
+        }
+
+        if (attempts == maxAttempts) {
+            System.out.println("Your Account is Locked.");
+        }
+
+    }
+}

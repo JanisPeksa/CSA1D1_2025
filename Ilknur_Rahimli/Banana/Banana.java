@@ -1,5 +1,5 @@
-class BananaBlock {
-    static void main() {
+public class Banana {
+    public static void main(String[] args) {
         System.out.println("BBBB");
         System.out.println("B   B");
         System.out.println("BBBB");

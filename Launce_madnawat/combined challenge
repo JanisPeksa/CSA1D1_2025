@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("enter your age: ");
+        int age = sc.nextInt();
+
+        System.out.println("Enter your citizenship:");
+        String citizen = sc.nextLine();
+
+        if (age >= 18 && citizen.equals("Latvian")) {
+            System.out.println("you are eligible to vote");
+        }
+        else if ( age >= 16) {
+            System.out.println("you are eligible to drive");
+        }
+        else if( age >= 65) {
+            System.out.println("you are eligible to retire");
+        }
+        else {
+            System.out.println("yor are not eligible for any of these activities");
+                }
+
+
+            }
+        }
