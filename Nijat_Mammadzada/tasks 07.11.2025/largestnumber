@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+
+        System.out.print("Enter third number: ");
+        int c = sc.nextInt();
+
+        int largest = a;
+
+        if (b > largest) {
+            largest = b;
+        }
+        if (c > largest) {
+            largest = c;
+        }
+
+        // Handle ties
+        if (a == b && b == c) {
+            System.out.println("All numbers are equal (" + a + ").");
+        } else {
+            System.out.print("The largest number is " + largest);
+            if ((a == largest && b == largest) || (a == largest && c == largest) || (b == largest && c == largest)) {
+                System.out.println(" (There is a tie).");
+            } else {
+                System.out.println(".");
+            }
+        }
+
+        sc.close();
+    }
+}
