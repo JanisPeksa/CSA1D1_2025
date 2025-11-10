@@ -5,7 +5,7 @@ import java.util.Scanner;
                 System.out.println("Write a year");
                 int year = sc.nextInt();
 
-                if (year % 4 == 0 || year % 400 == 0) {
+                if (year % 4 == 0 && year % 100 ==0 || year % 400 == 0 {
                     System.out.println("it's a leap year");
                     System.out.println("this year has 366 days");
                 } else {
