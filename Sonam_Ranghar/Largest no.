@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Ticket {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter Integer A");
+        System.out.println("Enter Integer B");
+        System.out.println("Enter Integer C");
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+
+        if (a > b) {
+            System.out.println("A is largest");
+        }
+        else if (b > c){
+            System.out.println("B is largest");
+        }
+        else if(c > a && c > b) {
+            System.out.println("C is largest");
+        }
+
+    }
+}
