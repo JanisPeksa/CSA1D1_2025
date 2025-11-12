@@ -12,14 +12,8 @@ public class temperature {
             System.out.println("it's cold");
         } else if (15<=temp && temp<25) {
             System.out.println("it's warm");
-        } else if (25<=temp) {
+        } else {
             System.out.println("it's hot");
-        } else if (temp>=70) {
-            System.out.println(("C"));
-        }else if (temp>=60) {
-            System.out.println(("D"));
-        } else  {
-            System.out.println(('F'));
 
         }
 
