@@ -6,13 +6,14 @@ class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter number:");
 
-        int i = sc.nextInt();
-        i = 0;
+        int num = sc.nextInt();
 
 
-        for (i=1; i<=10; i++) {
-           System.out.println(i + "*" + i + "=" + i*i);
-           i++;
-       }
+        for (int i = 1; i <= 10; ++i) {
+            System.out.println(num + " * " + i + " = " + num * i);
+        }
+        sc.close();
+
+
     }
 }
