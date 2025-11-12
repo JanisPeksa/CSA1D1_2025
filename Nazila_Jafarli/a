@@ -1,0 +1,244 @@
+n1
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a positive integer n: ");
+        int n = sc.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                System.out.println("FizzBuzz");
+            } else if (i % 3 == 0) {
+                System.out.println("Fizz");
+            } else if (i % 5 == 0) {
+                System.out.println("Buzz");
+            } else {
+                System.out.println(i);
+            }
+        }
+
+        sc.close();
+    }
+}
+n2
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+
+        System.out.print("Enter third number: ");
+        int c = sc.nextInt();
+
+        int largest = a;
+
+        if (b > largest) {
+            largest = b;
+        }
+        if (c > largest) {
+            largest = c;
+        }
+
+        // Handle ties
+        if (a == b && b == c) {
+            System.out.println("All numbers are equal (" + a + ").");
+        } else {
+            System.out.print("The largest number is " + largest);
+            if ((a == largest && b == largest) || (a == largest && c == largest) || (b == largest && c == largest)) {
+                System.out.println(" (There is a tie).");
+            } else {
+                System.out.println(".");
+            }
+        }
+
+        sc.close();
+    }
+}
+
+n3
+
+
+
+public class LeapYearChecker {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter a year: ");
+        int year = input.nextInt();
+
+        boolean isLeap = false;
+
+        // Leap year rules:
+        // - Divisible by 4 → possible leap year
+        // - But if divisible by 100 → not a leap year
+        // - Unless divisible by 400 → leap year again
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                if (year % 400 == 0) {
+                    isLeap = true;
+                } else {
+                    isLeap = false;
+                }
+            } else {
+                isLeap = true;
+            }
+        }
+
+        if (isLeap) {
+            System.out.println(year + " is a leap year.");
+            System.out.println("It has 366 days.");
+        } else {
+            System.out.println(year + " is not a leap year.");
+            System.out.println("It has 365 days.");
+        }
+
+        input.close();
+    }
+}
+n4
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+
+        System.out.println("Multiplication table for " + num + ":");
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(num + " x " + i + " = " + (num * i));
+        }
+
+        sc.close();
+    }
+}
+n5
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a non-negative integer: ");
+        int n = sc.nextInt();
+
+        if (n < 0) {
+            System.out.println("Factorial is not defined for negative numbers.");
+        } else {
+            if (n > 12) {
+                System.out.println("Warning: Result may overflow the int range!");
+            }
+
+            int factorial = 1;
+            for (int i = 1; i <= n; i++) {
+                factorial *= i;
+            }
+
+            System.out.println(n + "! = " + factorial);
+        }
+
+        sc.close();
+    }
+}
+n6
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter your password: ");
+        String password = sc.nextLine();
+
+        if (password.length() < 8) {
+            System.out.println("Too short");
+        } else if (password.matches("[A-Za-z]+")) {
+            System.out.println("Weak");
+        } else if (password.length() >= 8 && password.matches("(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z0-9]+")) {
+            System.out.println("Okay");
+        } else if (password.length() >= 10 && password.matches("(?=.*[A-Za-z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).+")) {
+            System.out.println("Strong");
+        } else {
+            System.out.println("Does not fit any category");
+        }
+
+        sc.close();
+    }
+}
+n7
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter an integer: ");
+        int num = sc.nextInt();
+
+        if (num > 0) {
+            System.out.println("Positive");
+        } else if (num < 0) {
+            System.out.println("Negative");
+        } else {
+            System.out.println("Zero");
+        }
+
+        sc.close();
+    }
+}
+
+n8
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter your age: ");
+        int age = sc.nextInt();
+
+        if (age < 5) {
+            System.out.println("Ticket price: Free");
+        } else if (age <= 17) {
+            System.out.println("Ticket price: 5 euros");
+        } else if (age <= 64) {
+            System.out.println("Ticket price: 12 euros");
+        } else {
+            System.out.println("Ticket price: 7 euros");
+        }
+
+        sc.close();
+    }
+}
+
+n9
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a lowercase string: ");
+        String text = sc.nextLine();
+
+        int count = 0;
+        for (int i = 0; i < text.length(); i++) {
+            char ch = text.charAt(i);
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                count++;
+            }
+        }
+
+        System.out.println("Number of vowels: " + count);
+
+        sc.close();
+    }
+}
