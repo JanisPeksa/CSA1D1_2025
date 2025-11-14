@@ -1,0 +1,26 @@
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        //Task 3
+        int tempt = sc.nextInt();
+
+        if (tempt < 0) {
+            System.out.println("It's freezing");
+        } else if (tempt > 0 && tempt <= 15) {
+            System.out.println("It's cold");
+        } else if (tempt > 15 && tempt <= 25) {
+            System.out.println("It's Warm");
+        } else if (tempt > 25) {
+            System.out.println("It's hot");
+        } else {
+            System.out.println("It's too hot");
+        }
+        System.out.println("Humidity = 50%");
+        System.out.println("Wind speed = 5 km/h");
+
+    }
+
+    }
