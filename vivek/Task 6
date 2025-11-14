@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class MiniDecisionGame {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("You're in a dark forest. Do you go LEFT or RIGHT?");
+        String choice = scanner.nextLine().toLowerCase();
+
+        if (choice.equals("left")) {
+            System.out.println("You found a river.");
+        } else if (choice.equals("right")) {
+            System.out.println("You meet a wolf.");
+        } else {
+            System.out.println("You stand still and nothing happens.");
+        }
+
+        scanner.close();
+    }
+}
