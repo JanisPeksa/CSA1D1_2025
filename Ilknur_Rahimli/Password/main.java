@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.print("Please enter your password: ");
+        Scanner sc = new Scanner(System.in);
+        String password = sc.nextLine();
+        int length = password.length();
+
+        if (length < 8) {
+            System.out.println("Password is too short");
+        } else if (password.chars().allMatch(Character::isLetter)) {
+            System.out.println("Password is too weak");
+        } else if (password.chars().allMatch(Character::isLetterOrDigit)) {
+            System.out.println("Password is ok");
+        } else if (length >= 10 && password.chars().anyMatch(Character::isDigit) && password.chars().anyMatch(Character::isLetter)) {
+            System.out.println("Strong is password");
+        }
+
+        sc.close();
+    }
+}
