@@ -1,6 +1,6 @@
 mport java.util.Scanner;
 
-class Calculator {
+class ClassWork.Calculator {
     public static void main(String[] args) {
            = new Scanner(System.in);
 

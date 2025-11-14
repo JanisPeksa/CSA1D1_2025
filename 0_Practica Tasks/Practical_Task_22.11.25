@@ -6,7 +6,7 @@
 
 import java.util.Scanner;
 
-class Calculator {
+class ClassWork.Calculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         double num1, num2;
@@ -52,7 +52,7 @@ class Calculator {
 
 import java.util.Scanner;
 
-class Calculator {
+class ClassWork.Calculator {
     public static void main(String[] args) {
         Scanner numbers = new Scanner(System.in);
 

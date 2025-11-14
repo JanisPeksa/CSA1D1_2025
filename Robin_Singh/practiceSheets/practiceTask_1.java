@@ -1,3 +1,5 @@
+package practiceSheets;
+
 import java.util.Scanner;
 
 public class practiceTask_1 {
