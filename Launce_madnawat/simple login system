@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int attempts = 3;
+
+        while (attempts > 0) {
+            System.out.println("enter username :");
+            String username = sc.nextLine();
+            System.out.println("enter password :");
+            String password = sc.nextLine();
+
+            if (username.equals("student") && password.equals("java123")) {
+                System.out.println("Welcome");
+                break;
+            } else if (username.equals("student") && !password.equals("java123")) {
+                attempts--;
+                System.out.println("Incorrect password");
+            } else {
+                attempts--;
+                System.out.println("Invalid username!");
+            }
+            if (attempts > 0) {
+                System.out.println("attempts left :" + attempts);
+            }
+            if (attempts == 0) {
+                System.out.println("your system is lock");
+            }
+
+        }
+    }
+}
