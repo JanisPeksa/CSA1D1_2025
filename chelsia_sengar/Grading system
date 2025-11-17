@@ -1,1 +1,28 @@
+import java.util.*;
 
+class FirstClass {
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      System.out.print("enter your score (0 - 100) : ");
+      int score = sc.nextInt();
+      if(score >= 90) {
+         System.out.println("Grade A+, brilliant");
+      } 
+      else if(score >= 80) {
+         System.out.println("Grade A, well done");
+      }
+      else if(score >= 70) {
+          System.out.println("Grade B, keep learning");
+      }
+      else if(score >= 60) {
+          System.out.println("Grade C, focus on studies");
+      }
+      else if(score >= 50) {
+         System.out.println("Grade D, very poor");
+      }
+      else {
+         System.out.println("Grade F, fail!");
+      }
+      
+  }  
+}
