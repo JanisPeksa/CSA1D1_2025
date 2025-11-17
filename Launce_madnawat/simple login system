@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+public class arrays {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -17,12 +17,14 @@ public class Main {
                 System.out.println("Welcome");
                 break;
             } else if (username.equals("student") && !password.equals("java123")) {
-                attempts--;
+                
                 System.out.println("Incorrect password");
             } else {
-                attempts--;
+                
                 System.out.println("Invalid username!");
             }
+            attempts--;
+        }
             if (attempts > 0) {
                 System.out.println("attempts left :" + attempts);
             }
@@ -32,4 +34,3 @@ public class Main {
 
         }
     }
-}
