@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class ConsecutiveIncreasingSequence {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Step 1: Ask for array size
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+
+        // Step 2: Read the integers
+        int[] numbers = new int[size];
+        System.out.println("Enter " + size + " integers:");
+        for (int i = 0; i < size; i++) {
+            numbers[i] = scanner.nextInt();
+        }
+
+        // Step 3: Find the longest strictly increasing consecutive sequence
+        int maxLength = 1; // At least one number forms a sequence of length 1
+        int currentLength = 1;
+
+        for (int i = 1; i < size; i++) {
+            if (numbers[i] > numbers[i - 1]) {
+                // Current number is greater than previous, sequence continues
+                currentLength++;
+                if (currentLength > maxLength) {
+                    maxLength = currentLength;
+                }
+            } else {
+                // Sequence broken, reset current length
+                currentLength = 1;
+            }
+        }
+
+        // Display the result
+        System.out.println("Length of longest increasing consecutive sequence: " + maxLength);
+
+        scanner.close();
+    }
