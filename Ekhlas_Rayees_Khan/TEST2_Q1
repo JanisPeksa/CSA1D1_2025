@@ -1,0 +1,38 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter the Length of the Array:");
+        int n = input.nextInt();
+
+        if (n == 0) {
+            System.out.println("Length: 0");
+            return;
+        }
+        int[] nums = new int[n];
+        System.out.println("Enter your numbers:");
+        for (int i = 0; i < n; i = i + 1) {
+            nums[i] = input.nextInt();
+        }
+        int count = 1;
+        int best = 1;
+
+        for (int i = 0; i < n - 1; i = i + 1) {
+            if (nums[i + 1] > nums[i]) {
+                count = count + 1;
+            } else {
+                if (count > best) {
+                    best = count;
+                }
+                count = 1;
+            }
+        }
+
+        if (count > best) {
+            best = count;
+        }
+
+        System.out.println("Longest increasing run length: " + best);
+    }
+}
