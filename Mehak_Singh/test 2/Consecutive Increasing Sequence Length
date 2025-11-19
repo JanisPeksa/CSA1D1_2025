@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the size of the array:");
+        int n = scanner.nextInt();
+
+        if (n <= 0) {
+            System.out.println("The array is empty or invalid. Longest sequence length is 0.");
+            scanner.close();
+            return;
+        }
+
+        int[] arr = new int[n];
+        System.out.println("Enter " + n + " integers:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        int maxLength = 1;
+        int currentLength = 1;
+        int maxStartingIndex = 0;
+        int currentStartingIndex = 0;
+
+
+        for (int i = 1; i < n; i++) {
+            if (arr[i] > arr[i - 1]) {
+                currentLength++;
+            } else {
+                currentLength = 1;
+                currentStartingIndex = i;
+            }
+
+
+            if (currentLength > maxLength) {
+                maxLength = currentLength;
+                maxStartingIndex = currentStartingIndex;
+            }
+        }
+
+        
+        System.out.println("Longest increasing consecutive sequence length: " + maxLength);
+        System.out.print("The sequence is: ");
+        for (int i = maxStartingIndex; i < maxStartingIndex + maxLength; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+
+        scanner.close();
+    }
+}
