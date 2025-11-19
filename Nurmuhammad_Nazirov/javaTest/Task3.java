@@ -1,4 +1,7 @@
-void main() {
+import java.util.Scanner;
+
+public class Task3 {
+    public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     System.out.println("Enter size of first array: ");
     int nA = scanner.nextInt();
