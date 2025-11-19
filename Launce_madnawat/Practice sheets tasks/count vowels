@@ -1,0 +1,23 @@
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+System.out.printf("Enter any word except bidi or cigrate : ");
+        String word = sc.nextLine();
+
+
+        int count = 0;
+        for (int i = 0; i < word.length(); i++){
+            char letter = word.charAt(i);
+           if (letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u'){
+               count++;
+           }
+        }
+
+//        System.out.printf("The word %s has %d vowels", word, count);
+        System.out.println("The total vowels are " + count);
+    }
+}
