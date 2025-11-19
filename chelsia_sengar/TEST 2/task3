@@ -1,1 +1,59 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Read first array
+        System.out.print("Enter size of first array: ");
+        int n1 = sc.nextInt();
+        int[] A = new int[n1];
+
+        System.out.println("Enter " + n1 + " sorted integers:");
+        for(int i = 0; i < n1; i++){
+            A[i] = sc.nextInt();
+        }
+
+        // Read second array
+        System.out.print("Enter size of second array: ");
+        int n2 = sc.nextInt();
+        int[] B = new int[n2];
+
+        System.out.println("Enter " + n2 + " sorted integers:");
+        for(int i = 0; i < n2; i++){
+            B[i] = sc.nextInt();
+        }
+
+        // Create merged array
+        int[] result = new int[n1 + n2];
+
+        int i = 0, j = 0, k = 0;
+
+        // Merge step (like merge sort)
+        while(i < n1 && j < n2){
+            if(A[i] <= B[j]){
+                result[k++] = A[i++];
+            } else {
+                result[k++] = B[j++];
+            }
+        }
+
+        // If elements left in A, add them
+        while(i < n1){
+            result[k++] = A[i++];
+        }
+
+        // If elements left in B, add them
+        while(j < n2){
+            result[k++] = B[j++];
+        }
+
+        // Print merged array
+        System.out.println("Merged sorted array:");
+        for(int val : result){
+            System.out.print(val + " ");
+        }
+    }
+}
+
 
