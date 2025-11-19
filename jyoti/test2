@@ -1,1 +1,167 @@
+import java.util.Scanner;
+
+public class main {
+   public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+
+      System.out.print("Enter the size of the array: ");
+      int n = sc.nextInt();
+
+      int[] arr = new int[n];
+
+
+      System.out.println("Enter " + n + " integers:");
+      for (int i = 0; i < n; i++) {
+         arr[i] = sc.nextInt();
+      }
+
+
+      if (n == 0) {
+         System.out.println("Length = 0");
+         return;
+      }
+
+      int longest = 1;
+      int current = 1;
+
+
+      for (int i = 1; i < n; i++) {
+         if (arr[i] > arr[i - 1]) {
+         } else {
+            if (current > longest) {
+               longest = current;
+            }
+            current = 1;
+         }
+      }
+
+
+
+
+
+
+      if (current > longest) {
+         longest = current;
+      }
+
+      System.out.println("Longest increasing consecutive sequence length = " + longest);
+   }
+}
+
+
+
+
+
+
+        import java.util.Scanner;
+
+public class main {
+
+
+   public static void reverse(int[] arr, int start, int end) {
+      while (start < end) {
+         int temp = arr[start];
+         arr[start] = arr[end];
+         arr[end] = temp;
+         start++;
+         end--;
+      }
+   }
+
+   public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+
+      System.out.print("Enter n: ");
+      int n = sc.nextInt();
+
+
+      int[] arr = new int[n];
+      System.out.println("Enter " + n + " integers:");
+      for (int i = 0; i < n; i++) {
+         arr[i] = sc.nextInt();
+      }
+
+      // Read k
+      System.out.print("Enter k: ");
+      int k = sc.nextInt();
+
+
+      k = k % n;
+
+
+      reverse(arr, 0, n - 1);
+
+      reverse(arr, 0, k - 1);
+
+      reverse(arr, k, n - 1);
+
+
+      System.out.print("Rotated Array: ");
+      for (int x : arr) {
+         System.out.print(x + " ");
+      }
+   }
+}
+
+
+
+
+
+
+
+        import java.util.Scanner;
+
+public class main  {
+   public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+
+      System.out.print("Enter size of first array: ");
+      int n1 = sc.nextInt();
+      int[] A = new int[n1];
+
+      System.out.println("Enter " + n1 + " sorted integers:");
+      for (int i = 0; i < n1; i++) {
+         A[i] = sc.nextInt();
+      }
+
+
+      System.out.print("Enter size of second array: ");
+      int n2 = sc.nextInt();
+      int[] B = new int[n2];
+
+      System.out.println("Enter " + n2 + " sorted integers:");
+      for (int i = 0; i < n2; i++) {
+         B[i] = sc.nextInt();
+      }
+
+
+      int[] C = new int[n1 + n2];
+
+      int i = 0, j = 0, k = 0;
+
+
+      while (i < n1 && j < n2) {
+         if (A[i] < B[j]) {
+            C[k++] = A[i++];
+         } ele {
+            C[k++] = B[j++];
+         }
+      }
+
+
+      while (i < n1) {
+         C[k++] = A[i++];
+      }
+
+      while (j < n2) {
+         C[k++] = B[j++];
+      }
+
+
+      System.out.print("Merged Array: ");
+      for (int x : C) {
+         System.out.print(x + " ");
+      }
+   }
+}
 
