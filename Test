@@ -1,0 +1,26 @@
+Task 1 — Consecutive Increasing Sequence Length
+Write a program that:
+Asks the user for the size of an array.
+Reads that many integers.
+Finds the length of the longest strictly increasing consecutive sequence.
+Example:
+Input: 3 5 6 2 3 4 1 → Longest increasing run is 2 3 4, length = 3
+
+Task 2 — Shift Array Right by K Steps (Manual)
+Write a program that:
+Reads n and then n integers into an array.
+Asks the user for k.
+Manually rotates the array to the right by k positions, without using a second array.
+Example:
+Array: [1,2,3,4,5], k=2 → [4,5,1,2,3]
+
+Task 3 — Merge Two Sorted Arrays 
+Write a program that:
+Reads two array sizes.
+Reads two arrays that are already sorted in ascending order.
+Creates a third array that merges them into one sorted array (like the merge step of merge sort).
+Prints the result.
+Example:
+A = [1, 4, 5]
+B = [2, 3, 10]
+Result: [1,2,3,4,5,10]
