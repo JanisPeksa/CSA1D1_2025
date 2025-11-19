@@ -1,157 +1,33 @@
 import java.util.Scanner;
-
-public class Main{
-
-    public static void task_1(){
-//      Consecutive Increasing Sequence Length
-
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("Enter the length of the Array : ");
-
-        int length = input.nextInt();
-        int[] array = new int[length];
-        int seqLength = 1;
-
-
-        for (int i = 0; i < length; i++){
-            System.out.print("Enter a Number : ");
-            array[i] = input.nextInt();
-        }
-
-        for (int i = 0; i < array.length; i++){
-            int currentElement = array[i];
-            int count = 1;
-
-            for(int j = i + 1; j < array.length; j++){
-                if (array[j] == currentElement + count ){
-                    count++;
-                }else {
-                    break;
-                }
-            }
-
-            if (count > seqLength){
-                seqLength = count;
-            }
-
-        }
-
-        System.out.println("So the Consecutive Increasing Sequence Length is " + seqLength);
-
-        input.close();
-
-    }
-
-
-    public static void task_2(){
-
-
-//        Shift Array Right by K Steps (Manual)
-
-
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("Enter the length of the Array : ");
-
-        int length = input.nextInt();
-        int[] array = new int[length];
-
-
-        for (int i = 0; i < length; i++){
-            System.out.print("Enter a Number : ");
-            array[i] = input.nextInt();
-        }
-
-        System.out.print("Enter the value of k : ");
-        int k = input.nextInt();
-
-        for (int i = 0; i < k; i++) {
-            int lastElement = array[length - 1];
-            for (int j = length - 1; j > 0; j--) {
-                array[j] = array[j - 1];
-            }
-            array[0] = lastElement;
-        }
-
-        for (int i = 0; i < array.length; i++){
-            System.out.print(array[i] + " ");
-        }
-
-
-
-
-
-    }
-
-
-    public static void task_3(){
-
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("Enter the length of the 1st Array : ");
-        int length1 = input.nextInt();
-        int[] array1 = new int[length1];
-
-
-        System.out.print("Enter the length of the 2nd Array : ");
-        int length2 = input.nextInt();
-        int[] array2 = new int[length2];
-
-
-        int[] newArray = new int[length2 + length1];
-
-
-
-        for (int i = 0; i < length1; i++){
-            System.out.print("Enter a Number for 1st Array : ");
-            array1[i] = input.nextInt();
-        }
-
-        for (int i = 0; i < length2; i++){
-            System.out.print("Enter a Number for 2nd Array : ");
-            array2[i] = input.nextInt();
-        }
-
-
-        // array1
-        // array2
-        int i = 0;
-        int j = 0;
-        int k = 0;
-
-        while (i < array1.length && j < array2.length) {
-            if (array1[i] < array2[j]) {
-                newArray[k++] = array1[i++];
-            } else {
-                newArray[k++] = array2[j++];
-            }
-        }
-
-        // Copy remaining elements of a (if any)
-        while (i < array1.length) {
-            newArray[k++] = array1[i++];
-        }
-
-        // Copy remaining elements of b (if any)
-        while (j < array2.length) {
-            newArray[k++] = array2[j++];
-        }
-
-
-        for (int index = 0; index < newArray.length; index++){
-            System.out.println(newArray[index] + " ");
-        }
-
-
-
-        input.close();
-
-    }
-
+public class ArrayRotation {
     public static void main(String[] args) {
-//        task_1();
-//        task_2();
-        task_3();
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the size of the array (n): ");
+        int n = input.nextInt();
+
+        if (n <= 0) {
+            System.out.println("invalid input!!!!");
+            return;
+        }
+        int[] nums = new int[n];
+        System.out.println("Enter " + " integers:" + n );
+        for (int i = 0; i < n; i = i + 1) {
+            nums[i] = input.nextInt();
+        }
+        System.out.println("Enter k (positions to rotate right): ");
+        int k = input.nextInt();
+        k = k % n;
+        for (int j = 0; j < k; j = j + 1) {
+            int last = nums[n - 1];
+            for (int i = n - 1; i > 0; i = i - 1) {
+                nums[i] = nums[i - 1];
+            }
+
+            nums[0] = last;
+        }
+        System.out.print("Rotated Array: ");
+        for (int i = 0; i < n; i = i + 1) {
+            System.out.print(nums[i] + " ");
+        }
     }
 }
