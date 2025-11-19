@@ -1,0 +1,69 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read sizes of the two arrays
+        System.out.print("Enter size of first array: ");
+        int n1 = scanner.nextInt();
+        System.out.print("Enter size of second array: ");
+        int n2 = scanner.nextInt();
+
+        // Read first sorted array
+        int[] A = new int[n1];
+        System.out.println("Enter " + n1 + " elements of first sorted array (ascending):");
+        for (int i = 0; i < n1; i++) {
+            A[i] = scanner.nextInt();
+        }
+
+        // Read second sorted array
+        int[] B = new int[n2];
+        System.out.println("Enter " + n2 + " elements of second sorted array (ascending):");
+        for (int i = 0; i < n2; i++) {
+            B[i] = scanner.nextInt();
+        }
+
+        // Merge the sorted arrays
+        int[] merged = mergeArrays(A, B);
+
+        // Print result
+        System.out.print("Merged array: [");
+        for (int i = 0; i < merged.length; i++) {
+            System.out.print(merged[i]);
+            if (i < merged.length - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("]");
+
+        scanner.close();
+    }
+
+    private static int[] mergeArrays(int[] A, int[] B) {
+        int n1 = A.length, n2 = B.length;
+        int[] result = new int[n1 + n2];
+
+        int i = 0, j = 0, k = 0;
+        // Merge until one array is exhausted
+        while (i < n1 && j < n2) {
+            if (A[i] <= B[j]) {
+                result[k++] = A[i++];
+            } else {
+                result[k++] = B[j++];
+            }
+        }
+
+        // Copy remaining elements from A if there is any
+        while (i < n1) {
+            result[k++] = A[i++];
+        }
+
+        // Copy remaining elements from B if there are any
+        while (j < n2) {
+            result[k++] = B[j++];
+        }
+
+        return result;
+    }
+}
