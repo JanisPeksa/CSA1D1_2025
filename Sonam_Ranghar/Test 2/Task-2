@@ -12,7 +12,6 @@ public class Task2 {
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
-
         System.out.print("Enter k: ");
         int k = sc.nextInt();
         k %= n;
