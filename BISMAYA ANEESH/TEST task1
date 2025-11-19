@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Task1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Array size: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
+
+        int longest = 1, count = 1;
+        for (int i = 1; i < n; i++) {
+            if (arr[i] > arr[i - 1]) count++;
+            else count = 1;
+            if (count > longest) longest = count;
+        }
+
+        System.out.println("Longest increasing length: " + longest);
+    }
+}
