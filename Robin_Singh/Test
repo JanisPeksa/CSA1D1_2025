@@ -1,27 +1,9 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main{
 
     public static void task_1(){
 //      Consecutive Increasing Sequence Length
-
-
-
-
-//        k = k % n;
-//        for (int j = 0; j < k; j = j + 1) {
-//            int last = nums[n - 1];
-//            for (int i = n - 1; i > 0; i = i - 1) {
-//                nums[i] = nums[i - 1];
-//            }
-//
-//            nums[0] = last;
-//        }
-//        System.out.print("Rotated Array: ");
-//        for (int i = 0; i < n; i = i + 1) {
-//            System.out.print(nums[i] + " ");
-//        }
 
         Scanner input = new Scanner(System.in);
 
@@ -68,7 +50,6 @@ public class Main{
 //        Shift Array Right by K Steps (Manual)
 
 
-
         Scanner input = new Scanner(System.in);
 
         System.out.print("Enter the length of the Array : ");
@@ -85,26 +66,18 @@ public class Main{
         System.out.print("Enter the value of k : ");
         int k = input.nextInt();
 
-        int[] newArr = array.clone();
+        for (int i = 0; i < k; i++) {
+            int lastElement = array[length - 1];
+            for (int j = length - 1; j > 0; j--) {
+                array[j] = array[j - 1];
+            }
+            array[0] = lastElement;
+        }
 
         for (int i = 0; i < array.length; i++){
-            int ele = array[i];
-
-            if (i + k > array.length - 1){
-                newArr[i + k - array.length] = ele;
-            } else {
-                newArr[i + k] = ele;
-            }
-
-
-
-
+            System.out.print(array[i] + " ");
         }
 
-
-        for (int p = 0; p < newArr.length; p++){
-            System.out.println(newArr[p]);
-        }
 
 
 
@@ -117,39 +90,54 @@ public class Main{
         Scanner input = new Scanner(System.in);
 
         System.out.print("Enter the length of the 1st Array : ");
-
         int length1 = input.nextInt();
         int[] array1 = new int[length1];
-        System.out.print("Enter the length of the 2nd Array : ");
 
+
+        System.out.print("Enter the length of the 2nd Array : ");
         int length2 = input.nextInt();
         int[] array2 = new int[length2];
+
+
         int[] newArray = new int[length2 + length1];
 
 
 
         for (int i = 0; i < length1; i++){
             System.out.print("Enter a Number for 1st Array : ");
-            int val = input.nextInt();
-            array1[i] = val;
-            newArray[i] = val;
+            array1[i] = input.nextInt();
         }
 
         for (int i = 0; i < length2; i++){
             System.out.print("Enter a Number for 2nd Array : ");
-            int val = input.nextInt();
-            array2[i] = val;
-            newArray[i + length1] = val;
+            array2[i] = input.nextInt();
         }
 
-        Arrays.sort(newArray);
 
-        for (int i = 0; i < newArray.length; i++){
-            System.out.print(newArray[i] + " ");
+        int i = 0;
+        int j = 0;
+        int k = 0;
+
+        while (i < array1.length && j < array2.length) {
+            if (array1[i] < array2[j]) {
+                newArray[k++] = array1[i++];
+            } else {
+                newArray[k++] = array2[j++];
+            }
         }
 
-        // array1
-        // array2
+        while (i < array1.length) {
+            newArray[k++] = array1[i++];
+        }
+
+        while (j < array2.length) {
+            newArray[k++] = array2[j++];
+        }
+
+
+        for (int index = 0; index < newArray.length; index++){
+            System.out.println(newArray[index] + " ");
+        }
 
 
 
@@ -158,8 +146,8 @@ public class Main{
     }
 
     public static void main(String[] args) {
-//        task_1();
+        task_1();
 //        task_2();
-        task_3();
+//        task_3();
     }
 }
