@@ -1,1 +1,154 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        //----------------------------------TASK-1----------------------------//
+
+
+        System.out.print("Enter  size of array: ");
+        int n = sc.nextInt();
+
+
+        int[] numbers = new int[n];
+        System.out.println("Enter " + n + " integers:");
+        for (int i = 0; i < n; i++) {
+            numbers[i] = sc.nextInt();
+        }
+
+        int length;
+        if (n == 0) {
+            length = 0;
+        } else {
+            length = 1;
+            int currentLength = 1;
+
+            for (int i = 1; i < n; i++) {
+                if (numbers[i] > numbers[i - 1]) {
+                    currentLength++;
+                    if (currentLength > length) {
+                        length = currentLength;
+                    }
+                } else {
+                    currentLength = 1;
+                }
+            }
+        }
+        System.out.println("Length  " + length);
+    }
+}
+
+
+
+// -------------------------TASK - 2 ---------------------------
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+
+        int[] matrix = new int[n];
+        System.out.println("Enter " + n + " integers:");
+        for(int i = 0; i < n; i++) {
+            matrix[i] = sc.nextInt();
+        }
+
+        System.out.print("Enter k: ");
+        int k = sc.nextInt();
+
+        k = k % n;
+
+        for(int shift = 0; shift < k; shift++) {
+
+            int last = matrix[n - 1];
+
+            for(int i = n - 1; i > 0; i--) {
+                matrix[i] = matrix[i - 1];
+            }
+
+            matrix[0] = last;
+        }
+        System.out.print("Array after rotation: ");
+
+        for(int i = 0; i < n; i++) {
+            System.out.print(matrix[i] + " ");
+        }
+    }
+}
+
+// -----------------------TASK-3--------------------------//
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+
+        System.out.print("Enter size of first array: ");
+        int size1 = sc.nextInt();
+        int[] number1 = new int[size1];
+        System.out.println("Enter first sorted array:");
+        for(int i = 0; i < size1; i++) {
+            number1[i] = sc.nextInt();
+        }
+
+        System.out.print("Enter size of second array: ");
+        int size2 = sc.nextInt();
+        int[] number2 = new int[size2];
+        System.out.println("Enter second sorted array:");
+        for(int i = 0; i < size2; i++) {
+            number2[i] = sc.nextInt();
+        }
+
+        int[] result = new int[size1 + size2];
+
+        int i = 0;
+        int j = 0 ;
+        int position = 0 ;
+
+        while(i < size1 && j < size2) {
+            if(number1[i] < number2[j]) {
+                result[position] = number1[i];
+                i++;
+            } else {
+                result[position] = number2[j];
+                j++;
+            }
+            position++;
+        }
+        while(i < size1) {
+            result[position] = number1[i];
+            i++;
+            position++;
+        }
+        while(j < size2) {
+            result[position] = number2[j];
+            j++;
+            position++;
+        }
+        System.out.print("Merged array: ");
+        for(int num : result) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 
