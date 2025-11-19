@@ -4,18 +4,15 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Step 1: Read array size
         System.out.print("Enter the size of the array: ");
         int n = sc.nextInt();
         int[] arr = new int[n];
 
-        // Step 2: Read array elements
         System.out.println("Enter " + n + " integers:");
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
 
-        // Step 3: Read k
         System.out.print("Enter value of k: ");
         int k = sc.nextInt();
 
@@ -27,14 +24,12 @@ public class Main {
         reverse(arr, 0, k - 1);
         reverse(arr, k, n - 1);
 
-        // Step 4: Display result
         System.out.println("Array after rotation:");
         for (int value : arr) {
             System.out.print(value + " ");
         }
     }
 
-    // Helper method to reverse array segment
     public static void reverse(int[] arr, int start, int end) {
         while (start < end) {
             int temp = arr[start];
