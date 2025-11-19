@@ -16,10 +16,7 @@ public class Main {
         System.out.print("Enter value of k: ");
         int k = sc.nextInt();
 
-        // Handle cases where k > n
         k = k % n;
-
-        // Rotate array manually without using a new array
         reverse(arr, 0, n - 1);
         reverse(arr, 0, k - 1);
         reverse(arr, k, n - 1);
@@ -29,7 +26,6 @@ public class Main {
             System.out.print(value + " ");
         }
     }
-
     public static void reverse(int[] arr, int start, int end) {
         while (start < end) {
             int temp = arr[start];
