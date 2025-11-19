@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class main {
+    import java.util.Scanner;
+
+    public class MergeSortedArrays {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+
+
+            System.out.print("Enter size of first array: ");
+            int n = sc.nextInt();
+
+            System.out.print("Enter size of second array: ");
+            int m = sc.nextInt();
+
+            int[] A = new int[n];
+            int[] B = new int[m];
+            int[] C = new int[n + m];
+
+            System.out.println("Enter first sorted array:");
+            for (int i = 0; i < n; i++) {
+                A[i] = sc.nextInt();
+            }
+
+
+            System.out.println("Enter second sorted array:");
+            for (int i = 0; i < m; i++) {
+                B[i] = sc.nextInt();
+            }
+
+        }
+    }    
