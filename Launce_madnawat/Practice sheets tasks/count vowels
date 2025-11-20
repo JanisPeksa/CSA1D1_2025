@@ -1,21 +1,22 @@
 import java.util.*;
 
 public class Main {
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-System.out.printf("Enter any word except bidi or cigrate : ");
-        String word = sc.nextLine();
+        System.out.println("write any word");
+        String word = sc.nextLine() .toLowerCase();
 
 
         int count = 0;
-        for (int i = 0; i < word.length(); i++){
+
+        for (int i = 0; i < word.length(); i++) {
             char letter = word.charAt(i);
-           if (letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u'){
-               count++;
-           }
+            if (letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u' ) {
+                count++;
+            }
         }
-        System.out.println("The total vowels are " + count);
+
+        System.out.println("no. of vowels in your code is : " + count);
     }
 }
