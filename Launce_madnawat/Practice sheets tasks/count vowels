@@ -16,8 +16,6 @@ System.out.printf("Enter any word except bidi or cigrate : ");
                count++;
            }
         }
-
-//        System.out.printf("The word %s has %d vowels", word, count);
         System.out.println("The total vowels are " + count);
     }
 }
