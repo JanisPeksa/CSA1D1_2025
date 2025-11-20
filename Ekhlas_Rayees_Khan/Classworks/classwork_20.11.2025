@@ -1,0 +1,57 @@
+void main() {
+    int[][] matrix = {
+            {10, 20, 15},
+            {21, 30, 14},
+            {70, 16, 32},
+            {45, 67, 33},
+            {66, 22, 11},
+            {99, 88, 55}
+
+    };
+    int rows = matrix.length;
+    int cols = matrix[0].length;
+
+    System.out.println("Matrix:");
+    for (int[] ints : matrix) {
+        for (int j = 0; j < cols; j++) {
+            IO.print(ints[j] + "\t");
+        }
+        System.out.println();
+    }
+
+    System.out.println("\nFinding peaks...");
+
+    int numberOfPeaks = 0;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+
+            int currentValue = matrix[i][j];
+            boolean pisPeak = true;
+            if (i > 0) {
+                if (matrix[i - 1][j] > currentValue) {
+                    pisPeak = false;
+                }
+            }
+            if (i < rows - 1) {
+                if (matrix[i + 1][j] > currentValue) {
+                    pisPeak = false;
+                }
+            }
+            if (j > 0) {
+                if (matrix[i][j - 1] > currentValue) {
+                    pisPeak = false;
+                }
+            }
+            if (j < cols - 1) {
+                if (matrix[i][j + 1] > currentValue) {
+                    pisPeak = false;
+                }
+            }
+            if (pisPeak) {
+                numberOfPeaks = numberOfPeaks + 1;
+                System.out.println("Peak at: " + i + ", col " + j + ": " + currentValue);
+            }
+        }
+    }
+    System.out.println("Total peaks found: " + numberOfPeaks);
+}
