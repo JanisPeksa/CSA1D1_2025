@@ -1,0 +1,31 @@
+public class MatrixRotator {
+    public static void main(String[] args) {
+        int[][] original = {
+                {1, 2, },
+                {4, 5, }
+        };
+        int size = original.length;
+        int[][] rotated = new int[size][size];
+
+        System.out.println("Original Matrix:");
+        printMatrix(original);
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < size; col++) {
+                int newRow = size - 1 - col;
+                int newCol = row;
+
+                rotated[newRow][newCol] = original[row][col];
+            }
+        }
+        System.out.println("\nRotated Matrix:");
+        printMatrix(rotated);
+    }
+    public static void printMatrix(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+}
