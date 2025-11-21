@@ -1,0 +1,52 @@
+N22
+public class Main {
+    public static void main(String[] args) {
+       int[][] arr1 = new int[10][10];
+       int[][] arr2 = new int[10][10];
+       int[][] arr3 = new int[10][];
+       int[][] arr4 = new int[10][10];
+       int[][] arr5 = new int[10][10];
+    }
+}
+N21
+for (int i = 0; i<20; i++){
+    System.out.println("Please inputX:");
+    Scanner unserInputX = new Scanner(System.in) ;
+    int inputX = userInputX . nextInt();
+    System.out.println("Please inputY:");
+    Scanner unserInputY = new Scanner(System.in) ;
+    int inputX = userInputY . nextInt();
+   
+    arr[inputX][inputY] = 1 ;
+}
+N25
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println("__");
+        System.out.println("_ =");
+        System.out.println(" ");
+        System.out.println(" ");
+    }
+}
+1-B
+11-C
+3-C
+8-B
+13-A
+15-A
+17-B
+19-B
+14-B
+18-A
+16-A
+4-A
+7-A
+10-A
+20-A
+12-C
+5-A
+9-A
+6-A
+2-A
