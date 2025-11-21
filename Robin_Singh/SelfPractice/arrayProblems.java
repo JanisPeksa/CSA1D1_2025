@@ -192,6 +192,55 @@ public class arrayProblems {
     }
 
 
+    public static void problem_6(){
+//        Given a 2D matrix, check whether it is a magic square.
+
+        int[][] array = {
+                {2, 7, 6},
+                {9, 5, 1},
+                {4, 3, 8}
+        };
+
+        int target = 0;
+        for (int j = 0; j < array[0].length; j++) {
+            target += array[0][j];
+        }
+
+
+
+        int columnSum = 0;
+        int rowSum = 0;
+        int diagnolSumL = 0;
+        int diagnolSumR = 0;
+
+        for (int i = 0; i < array.length; i++) {
+
+            diagnolSumL += array[i][i];
+            diagnolSumR += array[i][array.length - 1 - i];
+            rowSum = 0; columnSum = 0;
+
+            for (int j = 0; j < array[i].length; j++) {
+                rowSum += array[i][j];
+                columnSum += array[j][i];
+            }
+
+
+
+            if (rowSum != target || columnSum != target){
+                System.out.println("This is not a Magic square...");
+                return;
+            }
+        };
+
+        if (rowSum == columnSum && rowSum == diagnolSumL && rowSum == diagnolSumR){
+            System.out.println("This is A Magic Square...");
+        }
+
+
+
+    }
+
+
 
 
 
@@ -208,6 +257,7 @@ public class arrayProblems {
 //        problem_2();
 //        problem_3();
 //        problem_4();
-        problem_5();
+//        problem_5();
+        problem_6();
     }
 }
