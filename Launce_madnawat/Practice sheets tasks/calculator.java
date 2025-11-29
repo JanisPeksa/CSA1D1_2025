@@ -1,33 +1,45 @@
 import java.util.*;
-class FirstClass {
-    public static void main(String args[]){
-    Scanner sc = new Scanner(System.in);
-        System.out.println("enter 1st number");
+
+public class  Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the first number: ");
         int a = sc.nextInt();
-        System.out.println("enter 2nd number");
+
+        System.out.print("Enter the second number: ");
         int b = sc.nextInt();
-        
-        System.out.println("Enter 1 for Addition");
-        System.out.println("Enter 2 for Subtraction");
-        System.out.println("Enter 3 for Multiplication");
-        System.out.println("Enter 4 for Division");
-        int operation = sc.nextInt();
-       
-        if( operation == 1) {
-            int result = a + b ;
-            System.out.println("Result : " + result);}
-        else if( operation == 2) {
-            int result = a - b ;
-            System.out.println("result :" + result);}
-        else if( operation == 3) {
-            int result = a * b ;
-            System.out.println("result :" + result);}
-        else if ( operation == 4) {
-            int result = a / b ;
-            System.out.println("result :" + result);}
-        else     {
-        System.out.println("Invalid result");}
-    }
-} 
 
+        System.out.print("Enter an operator (+ , - , * , / , ^ ): ");
+        char symbol = sc.next().charAt(0);
 
+        switch(symbol){
+            case '+' :
+                System.out.println( a + b);
+                break;
+            case '-' :
+                System.out.println( a - b);
+                break;
+            case '*':
+                System.out.println( a * b );
+                break;
+            case '/':
+                if ( b == 0 ){
+                    System.out.println("you can't divide by 0");
+                }
+                else {
+                    System.out.println(a / b);
+                }
+                break;
+            case '^':
+                System.out.println(Math.pow(a , b));
+                break;
+            default:
+                System.out.println("you didn't use the write symbol");
+                break;
+
+        }
+
+        }
+
+      }
