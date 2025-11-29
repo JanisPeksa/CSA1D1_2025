@@ -1,36 +1,36 @@
 import java.util.*;
 
-public class arrays {
-
+public class  Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int attempts = 3;
+        int attempts = 3 ;
 
-        while (attempts > 0) {
-            System.out.println("enter username :");
-            String username = sc.nextLine();
-            System.out.println("enter password :");
-            String password = sc.nextLine();
+        while(attempts > 0) {
+            System.out.print("Enter your username: ");
+            String username = sc.nextLine().toLowerCase();
+
+            System.out.print("Enter your password: ");
+            String password = sc.nextLine().toLowerCase();
 
             if (username.equals("student") && password.equals("java123")) {
-                System.out.println("Welcome");
+                System.out.println("Welcome to our System");
                 break;
             } else if (username.equals("student") && !password.equals("java123")) {
-                
                 System.out.println("Incorrect password");
+            } else if (!username.equals("student") && password.equals("java123")) {
+                System.out.println("Incorrect username");
             } else {
-                
-                System.out.println("Invalid username!");
-            }
-            attempts--;
-        }
-            if (attempts > 0) {
-                System.out.println("attempts left :" + attempts);
-            }
-            if (attempts == 0) {
-                System.out.println("your system is lock");
+                System.out.println("Invalid username and password");
             }
 
+            attempts--;
+            System.out.println("attempts left: " + attempts);
         }
+        if (attempts == 0 ){
+            System.out.println("your system is lock");
+        }
+
+        }
+
     }
