@@ -1,4 +1,4 @@
-public class name {
+public class n2_name {
     public static void main(String[] args) {
         System.out.println(".........");
         System.out.println(".JĀNIS... ");
