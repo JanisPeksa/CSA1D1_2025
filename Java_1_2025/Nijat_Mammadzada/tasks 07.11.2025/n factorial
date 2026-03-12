@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a non-negative integer: ");
+        int n = sc.nextInt();
+
+        if (n < 0) {
+            System.out.println("Factorial is not defined for negative numbers.");
+        } else {
+            if (n > 12) {
+                System.out.println("Warning: Result may overflow the int range!");
+            }
+
+            int factorial = 1;
+            for (int i = 1; i <= n; i++) {
+                factorial *= i;
+            }
+
+            System.out.println(n + "! = " + factorial);
+        }
+
+        sc.close();
+    }
+}

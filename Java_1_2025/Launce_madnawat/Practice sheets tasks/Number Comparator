@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        // Tak 5
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        if ( a == b) {
+            System.out.println("Both ar equal");
+        }
+        else {
+            if ( a > b) {
+                System.out.println(" First is larger");
+            }
+            else {
+                System.out.println("Second is larger");
+            }
+
+        }
+    }
+}

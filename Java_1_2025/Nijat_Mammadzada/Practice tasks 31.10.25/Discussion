@@ -1,0 +1,5 @@
+"When would you use multiple if statements instead of else if?": I typically don't use them if i need a lot of checks.
+Match case statements fit better if you need to check a lot of conditions,especially user inputs
+
+"What are the drawbacks of too many if else statements?" :your program has to check conditions one by one which takes time and resources.
+On the other hand match case statements only do the operation that their case is made for

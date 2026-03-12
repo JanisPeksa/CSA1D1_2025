@@ -1,0 +1,37 @@
+import java.sql.SQLOutput;
+import java.util.Scanner;
+
+public class TemperatureChecker {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter the temperature");
+        double temperature = input.nextDouble();
+
+        System.out.println("Enter the humidity percentage (0-100): ");
+        double humidity = input.nextDouble();
+
+        System.out.println("Enter the wind speed (km/h): ");
+        double windSpeed = input.nextDouble();
+
+        String message;
+        if (temperature < 0) message = "It's freezing!";
+
+        else if  (temperature <= 15) message = "It's cold.";
+
+        else if ( temperature <= 25)message = "It's warm.";
+
+        else message = "It's hot!";
+
+        if (humidity > 80 ) message += "The air feels very humid.";
+
+        else if (humidity < 30) message += "The air is quite dry.";
+
+        else if (humidity > 20) message += "It's also windy.";
+
+        System.out.println(message);
+        input.close();
+
+    }
+
+}

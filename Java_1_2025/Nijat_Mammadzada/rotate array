@@ -1,0 +1,38 @@
+public class Main {
+    public static void main(String[] args) {
+
+        int[][] arr = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
+
+        int n = arr.length;
+        int[][] rotated = new int[n][n];
+
+        // Rotate 90 degrees clockwise
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                rotated[j][n - 1 - i] = arr[i][j];
+            }
+        }
+
+        // Print original array
+        System.out.println("Original 3x3 array:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        // Print rotated array
+        System.out.println("\nRotated 90 degrees clockwise:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(rotated[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}

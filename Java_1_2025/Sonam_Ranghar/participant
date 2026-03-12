@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        var part = new Participant();
+        System.out.println("Enter Name:");
+        part.Name = sc.nextLine();
+        System.out.println("Enter Surname:");
+        part.Surname = sc.nextLine();
+        System.out.println("Enter Phone Number:");
+        part.PhoneNumber = sc.nextLine();
+        System.out.println("Enter Ticket Count:");
+        part.TicketCount = sc.nextLine();
+
+        part.DescribeYourSelf();
+
+    }
+}
+
+public class Participant {
+    public String Name;
+    public String Surname;
+    public String PhoneNumber;
+    public String TicketCount;
+
+    public void DescribeYourSelf(){
+        System.out.println("Name: "+Name);
+        System.out.println("Surname: "+Surname);
+        System.out.println("PhoneNumber: "+PhoneNumber);
+        System.out.println("TicketCount: "+TicketCount);
+    }
+
+}

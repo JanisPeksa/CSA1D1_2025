@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter the size of the array: ");
+        int size = input.nextInt();
+
+        int[] numbers = new int[size];
+        System.out.println("Enter " + size + " integers:");
+        for (int i = 0; i < size; i++) {
+            numbers[i] = input.nextInt();
+        }
+
+        int maxLength = 1;
+        int currentLength = 1;
+
+        for (int i = 1; i < size; i++) {
+            if (numbers[i] > numbers[i - 1]) {
+                currentLength = currentLength + 1;
+                if (currentLength > maxLength) {
+                    maxLength = currentLength;
+                }
+            } else {
+                currentLength = 1;
+            }
+        }
+
+        System.out.println("Length of longest strictly increasing consecutive sequence: " + maxLength);
+
+        input.close();
+    }
+}

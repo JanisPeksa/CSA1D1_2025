@@ -1,0 +1,186 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Main extends JFrame {
+    int ballX = 50;
+    int ballY = 750;
+    int ballSize = 20;
+    boolean gameStarted = false;
+    boolean gameOver = false;
+    boolean gameWon = false;
+    long startTime;
+    long endTime;
+    double completionTime;
+
+    int[] obstacleX = {200, 400, 600, 800, 1000};
+    int[] obstacleY = new int[5];
+    int[] obstacleHeight = new int[5];
+    int obstacleWidth = 80;
+    boolean mouseOverStart = false;
+
+    int startX = 0;
+    int startY = 700;
+    int finishX = 1100;
+    int finishY = 700;
+    int zoneSize = 100;
+
+    JPanel panel;
+
+    public Main() {
+        setTitle("Ball Game");
+        setSize(1200, 800);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        createObstacles();
+
+        panel = new JPanel() {
+            public void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                drawGame(g);
+            }
+        };
+        panel.setBackground(Color.DARK_GRAY);
+
+        panel.addMouseMotionListener(new MouseMotionListener() {
+            public void mouseMoved(MouseEvent e) {
+                if (!gameStarted) {
+                    boolean wasOverStart = mouseOverStart;
+                    mouseOverStart = e.getX() >= startX && e.getX() <= startX + zoneSize &&
+                            e.getY() >= startY && e.getY() <= startY + zoneSize;
+
+                    if (wasOverStart != mouseOverStart) {
+                        panel.repaint();
+                    }
+                }
+                if (gameStarted && !gameOver && !gameWon) {
+                    ballX = e.getX();
+                    ballY = e.getY();
+
+                    checkCollisions();
+
+                    panel.repaint();
+                }
+            }
+
+            public void mouseDragged(MouseEvent e) {}
+        });
+
+        panel.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                if (!gameStarted) {
+                    if (e.getX() >= startX && e.getX() <= startX + zoneSize &&
+                            e.getY() >= startY && e.getY() <= startY + zoneSize) {
+                        gameStarted = true;
+                        startTime = System.currentTimeMillis();
+
+                        ballX = 50;
+                        ballY = 750;
+                    }
+                } else if (gameOver || gameWon) {
+                    resetGame();
+                }
+                panel.repaint();
+            }
+        });
+
+        add(panel);
+        setVisible(true);
+    }
+
+    void createObstacles() {
+        for (int i = 0; i < 5; i++) {
+            obstacleHeight[i] = 300 + (int)(Math.random() * 200);
+
+            if (i % 2 == 0) {
+                obstacleY[i] = 800 - obstacleHeight[i];
+            } else {
+                obstacleY[i] = 0;
+            }
+        }
+    }
+
+    void drawGame(Graphics g) {
+        drawGameElements(g);
+
+        if (gameStarted) {
+            g.setColor(Color.RED);
+            g.fillOval(ballX, ballY, ballSize, ballSize);
+        }
+
+        drawMessages(g);
+    }
+
+    void drawGameElements(Graphics g) {
+        if (!gameStarted && mouseOverStart) {
+            g.setColor(Color.ORANGE);
+        } else {
+            g.setColor(Color.RED);
+        }
+        g.fillRect(startX, startY, zoneSize, zoneSize);
+        g.setColor(Color.WHITE);
+        g.drawString("START", startX + 25, startY + 55);
+
+        g.setColor(Color.RED);
+        g.fillRect(finishX, finishY, zoneSize, zoneSize);
+        g.setColor(Color.WHITE);
+        g.drawString("FINISH", finishX + 20, finishY + 55);
+
+        g.setColor(Color.PINK);
+        for (int i = 0; i < 5; i++) {
+            g.fillRect(obstacleX[i], obstacleY[i], obstacleWidth, obstacleHeight[i]);
+        }
+    }
+
+    void drawMessages(Graphics g) {
+
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Arial", Font.BOLD, 30));
+
+        if (!gameStarted) {
+            g.drawString("Click START to Play!", 480, 400);
+        } else if (gameWon) {
+            g.drawString("You finished in " + String.format("%.1f", completionTime) + "s!", 400, 400);
+            g.drawString("Click to Play Again", 450, 450);
+        } else if (gameOver) {
+            g.drawString("Game Over! Click to Restart", 400, 400);
+        } else {
+            long currentTime = System.currentTimeMillis();
+            double elapsedTime = (currentTime - startTime) / 1000.0;
+            g.setFont(new Font("Arial", Font.BOLD, 24));
+            g.drawString("Time: " + String.format("%.1f", elapsedTime) + "s", 550, 50);
+        }
+    }
+
+    void checkCollisions() {
+        for (int i = 0; i < 5; i++) {
+            if (ballX + ballSize > obstacleX[i] &&
+                    ballX < obstacleX[i] + obstacleWidth &&
+                    ballY + ballSize > obstacleY[i] &&
+                    ballY < obstacleY[i] + obstacleHeight[i]) {
+                gameOver = true;
+            }
+        }
+
+        if (ballX > finishX && ballX < finishX + zoneSize &&
+                ballY > finishY && ballY < finishY + zoneSize) {
+            gameWon = true;
+            endTime = System.currentTimeMillis();
+            completionTime = (endTime - startTime) / 1000.0;
+        }
+    }
+
+    void resetGame() {
+        gameOver = false;
+        gameWon = false;
+        gameStarted = false;
+        ballX = 50;
+        ballY = 750;
+        mouseOverStart = false;
+        createObstacles();
+    }
+
+    public static void main(String[] args) {
+        new Main();
+    }
+}

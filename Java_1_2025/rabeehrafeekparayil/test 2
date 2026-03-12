@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+public class ShiftArrayRight {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read n and the array
+        System.out.print("Enter the size of the array (n): ");
+        int n = scanner.nextInt();
+
+        int[] arr = new int[n];
+        System.out.println("Enter " + n + " integers:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        // Ask for k
+        System.out.print("Enter k (number of positions to shift right): ");
+        int k = scanner.nextInt();
+
+        // Normalize k in case it's larger than array size
+        k = k % n;
+        if (k < 0) {
+            k = n + k; // Handle negative shifts
+        }
+
+        // Display original array
+        System.out.print("Original array: [");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i]);
+            if (i < n - 1) System.out.print(", ");
+        }
+        System.out.println("]");
+
+        // Shift array right by k positions without using second array
+        // Using reverse method approach (most efficient)
+        if (k > 0 && k < n) {
+            // Step 1: Reverse the entire array
+            reverse(arr, 0, n - 1);
+
+            // Step 2: Reverse first k elements
+            reverse(arr, 0, k - 1);
+
+            // Step 3: Reverse remaining elements
+            reverse(arr, k, n - 1);
+        }
+
+        // Display the result
+        System.out.print("Shifted array: [");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i]);
+            if (i < n - 1) System.out.print(", ");
+        }
+        System.out.println("]");
+
+        scanner.close();
+    }
+
+    // Helper method to reverse a portion of the array
+    private static void reverse(int[] arr, int start, int end) {
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }

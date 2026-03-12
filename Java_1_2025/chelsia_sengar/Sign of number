@@ -1,0 +1,21 @@
+import java.util.*;
+
+class FirstClass {
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      // to find if number is positive, negative, or zero
+      
+      System.out.print("enter your number ");
+      int n = sc.nextInt();
+
+      if(n == 0) {
+         System.out.println( n + " " + "is zero");
+      }
+      else if(n > 0) {
+         System.out.println( n + " " + "is positive");
+      }  
+      else {
+         System.out.println( n + " " + "is negative");
+      }
+  } 
+}
