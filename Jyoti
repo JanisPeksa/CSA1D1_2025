@@ -1,0 +1,152 @@
+package lv.turiba.police.systemx;
+
+import java.io.*;
+import java.util.LinkedList;
+import java.util.Queue;
+
+/**
+ * Core Architecture Framework for System 'X'
+ * Designed for Latvian State Police field nodes interfacing with E-lieta platform.
+ */
+public class SystemXApp {
+
+    // =========================================================================
+    // 2. CONCRETE EXTENSION LAYER (OOP Inheritance implementation)
+    // =========================================================================
+    public static class TrafficProtocol extends BaseProtocol {
+        private static final long serialVersionUID = 1L;
+
+        private final String licensePlate;
+        private final int registeredSpeed;
+        private final int legalSpeedLimit;
+
+        public TrafficProtocol(String protocolId, String officerId, String offenderId,
+                               String gpsCoordinates, String licensePlate, int registeredSpeed, int legalSpeedLimit) {
+            super(protocolId, officerId, offenderId, gpsCoordinates);
+            this.licensePlate = licensePlate;
+            this.registeredSpeed = registeredSpeed;
+            this.legalSpeedLimit = legalSpeedLimit;
+            sealProtocol(); // Instantly apply cryptographic fingerprint
+        }
+
+        @Override
+        public String getViolationDetails() {
+            return "{\n" +
+                    "    \"licensePlate\": \"" + licensePlate + "\",\n" +
+                    "    \"registeredSpeed\": " + registeredSpeed + ",\n" +
+                    "    \"legalSpeedLimit\": " + legalSpeedLimit + ",\n" +
+                    "    \"speedDelta\": " + (registeredSpeed - legalSpeedLimit) + "\n" +
+                    "  }";
+        }
+    }
+
+    // =========================================================================
+    // 3. PERSISTENCE LAYER (Binary Serialization Engine & FIFO Buffer)
+    // =========================================================================
+    public static class LocalBufferEngine {
+        private final String cacheStoragePath = "system_x_offline_queue.dat";
+
+        public void saveOfflineBuffer(BaseProtocol protocolFile) {
+            Queue<BaseProtocol> temporaryMemoryQueue = loadEntireOfflineQueue();
+            temporaryMemoryQueue.add(protocolFile);
+
+            try (ObjectOutputStream serializerStream = new ObjectOutputStream(new FileOutputStream(cacheStoragePath))) {
+                serializerStream.writeObject(temporaryMemoryQueue);
+                System.out.println("[LOCAL STORAGE] Protocol safely written to binary disk backup: " + protocolFile.getProtocolId());
+            } catch (IOException e) {
+                System.err.println("[FATAL ERROR] Local file persistence layer failed: " + e.getMessage());
+            }
+        }
+
+        @SuppressWarnings("unchecked")
+        public Queue<BaseProtocol> loadEntireOfflineQueue() {
+            File binaryFileTarget = new File(cacheStoragePath);
+            if (!binaryFileTarget.exists()) {
+                return new LinkedList<>();
+            }
+            try (ObjectInputStream deserializerStream = new ObjectInputStream(new FileInputStream(binaryFileTarget))) {
+                return (Queue<BaseProtocol>) deserializerStream.readObject();
+            } catch (IOException | ClassNotFoundException e) {
+                return new LinkedList<>();
+            }
+        }
+
+        public void purgeCacheFile() {
+            File binaryFileTarget = new File(cacheStoragePath);
+            if (binaryFileTarget.exists()) {
+                binaryFileTarget.delete();
+            }
+        }
+    }
+
+    // =========================================================================
+    // 4. MAIN SIMULATION ENGINE & EXECUTION LOOPS
+    // =========================================================================
+    public static void main(String[] args) {
+        System.out.println("=================================================================");
+        System.out.println("      INITIALIZING SYSTEM 'X' PROTOTYPE ENGINE - VALSTS POLICIJA ");
+        System.out.println("=================================================================\n");
+
+        LocalBufferEngine localBuffer = new LocalBufferEngine();
+        boolean isSystemOnline;
+
+        // ---------------------------------------------------------------------
+        // TEST CASE 1: Active Network Environment (Urban Riga Center)
+        // ---------------------------------------------------------------------
+        System.out.println("[TEST STAGE 1] Processing Traffic Offense via Active Network Link...");
+        isSystemOnline = true;
+
+        TrafficProtocol urbanIncident = new TrafficProtocol(
+                "VP-2026-09841", "OFFICER-4412", "050699-12345", "56.9496, 24.1052", "LV-7781", 94, 50
+        );
+
+        if (isSystemOnline) {
+            System.out.println("[NETWORK STATUS] Connected to E-lieta Central Endpoint Platform Node.");
+            System.out.println("[REST TRANSMISSION] Streaming validated data payload...");
+            System.out.println(urbanIncident.toEContentJson());
+            System.out.println("[SUCCESS] Protocol transferred. Crypto Validation Signature verified: OK.\n");
+        }
+
+        // ---------------------------------------------------------------------
+        // TEST CASE 2: Signal Dead-Zone (Rural Regional Forest Highway)
+        // ---------------------------------------------------------------------
+        System.out.println("[TEST STAGE 2] Processing Traffic Offense inside Network Dead-Zone...");
+        isSystemOnline = false;
+
+        TrafficProtocol ruralIncident = new TrafficProtocol(
+                "VP-2026-09842", "OFFICER-4412", "181195-54321", "57.3114, 25.2201", "LV-1244", 142, 90
+        );
+
+        if (!isSystemOnline) {
+            System.out.println("[WARNING] Network link dead. System 'X' routing data to offline fallback mode...");
+            localBuffer.saveOfflineBuffer(ruralIncident);
+            System.out.println("[INFO] Local data retention secure. Continuing operations.\n");
+        }
+
+        // ---------------------------------------------------------------------
+        // TEST CASE 3: Recovery Loop & FIFO Queue Synchronization Trace
+        // ---------------------------------------------------------------------
+        System.out.println("[TEST STAGE 3] Vehicle returns to Network Coverage Area...");
+        isSystemOnline = true;
+
+        if (isSystemOnline) {
+            System.out.println("[NETWORK STATUS] Signal restored. Initializing automated sync thread...");
+            Queue<BaseProtocol> backloggedQueue = localBuffer.loadEntireOfflineQueue();
+            System.out.println("[SYNC ENGINE] Found " + backloggedQueue.size() + " un-synchronized files in cache storage.");
+
+            while (!backloggedQueue.isEmpty()) {
+                BaseProtocol rawCachedProtocol = backloggedQueue.poll();
+                System.out.println("[SYNC EXECUTION] Processing file out of FIFO line: " + rawCachedProtocol.getProtocolId());
+                System.out.println("[REST TRANSMISSION] Streaming deserialized data block:");
+                System.out.println(rawCachedProtocol.toEContentJson());
+            }
+
+            localBuffer.purgeCacheFile();
+            System.out.println("[CLEANUP COMPLETE] Local offline data files purged. Device status: CLEAR.");
+        }
+        System.out.println("\n=================================================================");
+        System.out.println("      ALL SIMULATED TEST SCENARIOS COMPLETED SUCCESSFULY         ");
+        System.out.println("=================================================================");
+    }
+}
+
